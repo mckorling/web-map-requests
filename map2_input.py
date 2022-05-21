@@ -1,8 +1,11 @@
 import folium
 import requests
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
 PATH = 'https://us1.locationiq.com/v1/search.php' 
-LOCATIONIQ_API_KEY = 'pk.1f00c7cb204323568c51950910d520e8' 
+LOCATIONIQ_API_KEY = os.getenv('LOCATIONIQ_KEY')
 
 map = folium.Map([38.58, -99.09], zoom_start=6, tiles="Stamen Terrain")
 coord_dict = {} # key is place, value is coordinates (tuple w/ floats)
